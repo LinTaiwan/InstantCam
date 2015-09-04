@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="utf-8">
@@ -9,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sign in Page!</title>
+    <title>Sigin_Check Page!</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -63,40 +62,44 @@
         </div>
         <!-- /.container -->
     </nav>
+	
+	<div class="intro-header">
+        <div class="container">
+		<!-- Header -->
+			<?php
+				include("MyDB.php");
+					//測試用MyDB.php建物件
+					$myDB = new MyDB("ch8");
+					#$values['account']='LIN';
+					#$values['password'] = '12345';
+					#$myDB->insert("admin", $values);
+					
+						//登入申請(寫入資料庫)
+						$values['account']  =''.$_POST['account'].'';
+						$values['password'] = ''.md5($_POST['Pw']).'';
+						//echo '<div class="intro-message">';
+						if($myDB->insert("admin", $values)){ //判斷是寫入資料庫
+							echo "<h2>申請帳號成功</h2><br>".'<hr class="intro-divider">' ;
+							echo '<ul class="list-inline intro-social-buttons">';
+							echo '<li>';
+							echo '<a href="index.html" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span><span class="network-name"><strong>&nbsp Start Making! 開始製作!</strong></span></a>';
+							echo '</li>';
+							echo '</ul>';
+						}
+						else{ 
+							echo "申請帳號失敗";
+							echo '<ul class="list-inline intro-social-buttons">';
+							echo '<li>';
+							echo '<a href="index.html" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span><span class="network-name"><strong>&nbsp 重新申請 / Fail Please Go Back!</strong></span></a>';
+							echo '</li>';
+							echo '</ul>';
+							exit;
+						}
 
-
-    <!-- Sign in  -->
-   <div class=container>
-		<form class=form-signin role=form method="POST" action="signin_admin.php">
-			<h2 class=form-signin-heading>Please &nbsp Sign in</h2>
-		<label for=inputEmail class=sr-only>Account</label> <!--原Email address-->
-			<input type="text" name="account" id=inputEmail class=form-control placeholder="Account" required autofocus> 
-		<label for=inputPassword class=sr-only>Password</label> 
-			<input type="text" name="password" id=inputPassword class=form-control placeholder=Password required>
-		<div class=checkbox><label> 
-			<input type=checkbox value=remember-me> Remember me </label></div>
-			<button class="btn btn-lg btn-primary btn-block" type=submit>Sign in / 登入</button>
-		</form>
-	</div>
-  
-  
-	<!-- Register Acount -->
-   <div class=container>
-		<form class=form-signin role=form method="POST" action="register.php">
-			<h2 class=form-signin-heading>Register &nbsp New  One</h2>
-		<label for=inputEmail class=sr-only>Account</label> <!--原Email address-->
-			<input type="text" name="account" id=inputEmail class=form-control placeholder="Account" required autofocus> 
-		<label for=inputPassword class=sr-only>Password</label> 
-			<input type="text"  name="password" id=inputPassword class=form-control placeholder=Password required>
-		<div class=checkbox><label> 
-			<input type=checkbox value=remember-me> Remember me </label></div>
-			<button class="btn btn-lg btn-primary btn-block" type=submit>Resgist / 申請</button>
-		</form>
-	</div>
+			?>
     <!-- /.intro-header -->
-
-   
-    </div>
+		</div>
+	</div>
     <!-- /.banner -->
 
     <!-- Footer -->
@@ -127,14 +130,13 @@
         </div>
 		
     </footer>
-
+	
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
-
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
 </body>
-
 </html>
+

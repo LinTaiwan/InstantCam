@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="utf-8">
@@ -9,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sign in Page!</title>
+    <title>Sigin_Check Page!</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -63,40 +62,50 @@
         </div>
         <!-- /.container -->
     </nav>
+	
+	<div class="intro-header">
 
+		<!-- Header -->
+		<?php
+			include("MyDB.php");
+				//測試用MyDB.php建物件
+				$myDB = new MyDB("ch8");
+				#$values['account']='LIN';
+				#$values['password'] = '12345';
+				#$myDB->insert("admin", $values);
 
-    <!-- Sign in  -->
-   <div class=container>
-		<form class=form-signin role=form method="POST" action="signin_admin.php">
-			<h2 class=form-signin-heading>Please &nbsp Sign in</h2>
-		<label for=inputEmail class=sr-only>Account</label> <!--原Email address-->
-			<input type="text" name="account" id=inputEmail class=form-control placeholder="Account" required autofocus> 
-		<label for=inputPassword class=sr-only>Password</label> 
-			<input type="text" name="password" id=inputPassword class=form-control placeholder=Password required>
-		<div class=checkbox><label> 
-			<input type=checkbox value=remember-me> Remember me </label></div>
-			<button class="btn btn-lg btn-primary btn-block" type=submit>Sign in / 登入</button>
-		</form>
-	</div>
-  
-  
-	<!-- Register Acount -->
-   <div class=container>
-		<form class=form-signin role=form method="POST" action="register.php">
-			<h2 class=form-signin-heading>Register &nbsp New  One</h2>
-		<label for=inputEmail class=sr-only>Account</label> <!--原Email address-->
-			<input type="text" name="account" id=inputEmail class=form-control placeholder="Account" required autofocus> 
-		<label for=inputPassword class=sr-only>Password</label> 
-			<input type="text"  name="password" id=inputPassword class=form-control placeholder=Password required>
-		<div class=checkbox><label> 
-			<input type=checkbox value=remember-me> Remember me </label></div>
-			<button class="btn btn-lg btn-primary btn-block" type=submit>Resgist / 申請</button>
-		</form>
-	</div>
-    <!-- /.intro-header -->
-
-   
-    </div>
+					//確認身份
+					$done=true;
+					$result = $myDB->select("admin", "*");
+					while($adminData = mysql_fetch_array($result)){
+						if($_POST['account'] == $adminData['account'] && md5($_POST['password']) == $adminData['password']){
+							echo "<h2>登入成功! 歡迎回來! <br>Success Login!</h2>".'<hr class="intro-divider">' ;
+							echo '<ul class="list-inline intro-social-buttons">';
+							echo '<li>';
+							echo '<a href="index.html" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span><span class="network-name"><strong>&nbsp Start Making! 開始製作!</strong></span></a>';
+							echo '</li>';
+							echo '</ul>';
+							$done=false; //正確跳出迴圈
+							break;
+							}
+					}
+					if($done){
+					echo "<h2>登入失敗 !<br> Fail Login! Please Retry!</h2>".'<hr class="intro-divider">' ;
+					echo '<ul class="list-inline intro-social-buttons">';
+					echo '<li>';
+					echo '<a href="index.html" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span><span class="network-name"><strong>&nbsp 重新申請 / Fail Please Go Back!</strong></span></a>';
+					echo '</li>';
+					echo '</ul>';
+					}
+					?>
+			<!--
+				//密碼修改依據帳號
+				//$valueUpdate['password']='fR123456';
+				//$myDB->update("admin", $valueUpdate, " account = 'mom' ");
+				//$myDB->select("admin", "*");
+				//print_r($myDB->fetchAllResult());
+				-->
+   </div>
     <!-- /.banner -->
 
     <!-- Footer -->
@@ -125,16 +134,13 @@
                 </div>
             </div>
         </div>
-		
     </footer>
-
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
-
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
 </body>
-
 </html>
+
