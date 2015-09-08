@@ -42,7 +42,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand topnav" href="#">Catch Your Awesome Life Moment!</a>
+                <a class="navbar-brand topnav" href="index.html">Catch Your Awesome Life Moment!</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -82,7 +82,7 @@
 							echo "<h2>登入成功! 歡迎回來! <br>Success Login!</h2>".'<hr class="intro-divider">' ;
 							echo '<ul class="list-inline intro-social-buttons">';
 							echo '<li>';
-							echo '<a href="index.html" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span><span class="network-name"><strong>&nbsp Start Making! 開始製作!</strong></span></a>';
+							echo '<a href="cammaker.php" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span><span class="network-name"><strong>&nbsp Start Making! 開始製作!</strong></span></a>';
 							echo '</li>';
 							echo '</ul>';
 							$done=false; //正確跳出迴圈

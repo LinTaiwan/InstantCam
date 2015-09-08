@@ -15,7 +15,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/signin.css" rel="stylesheet">
+    <link href="css/cammake.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -64,40 +64,59 @@
         <!-- /.container -->
     </nav>
 
-
-    <!-- Sign in  -->
-   <div class=container>
-		<form class=form-signin role=form method="POST" action="signin_admin.php">
-			<h2 class=form-signin-heading>Please &nbsp Sign in</h2>
-		<label for=inputEmail class=sr-only>Account</label> <!--原Email address-->
-			<input type="text" name="account" id=inputEmail class=form-control placeholder="Account" required autofocus> 
-		<label for=inputPassword class=sr-only>Password</label> 
-			<input type="text" name="password" id=inputPassword class=form-control placeholder=Password required>
-		<div class=checkbox><label> 
-			<input type=checkbox value=remember-me> Remember me </label></div>
-			<button class="btn btn-lg btn-primary btn-block" type=submit>Sign in / 登入</button>
-		</form>
+	
+    <!-- User  -->
+	<div class="col-xs-6 col-md-2"><p></p>
+	<!--
+	<form method="POST" action="wordpost.php" enctype="multipart/form-data">
+		<input type="file" name="filename"><br>
+		<input type="submit" value="上傳">
+	</form>-->
 	</div>
+	
+		<div class="col-xs-6 col-md-4">
+			<div class="thumbnail">
+			<h4>Yours!</h4>
+			<!--
+				<img style="width: 300px; height: 400px; display: block;" alt="300x400" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDIgMjAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIG1lZXQiIHdpZHRoPSIyNDIiIGhlaWdodD0iMjAwIj48ZGVmcyAvPjxyZWN0IGZpbGw9IiNlZWVlZWUiIHdpZHRoPSIyNDIiIGhlaWdodD0iMjAwIiAvPjxnPjx0ZXh0IHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTFwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIiB4PSI5Mi40NzUiIHk9IjEwMCI+MjQyeDIwMDwvdGV4dD48L2c+PC9zdmc+" data-src="holder.js/100%x200" data-holder-rendered="true">
+				-->
+				
+				<img style="width: 300px; height: 400px; display: block;" alt="300x400" src="img/300400w.jpg">
+				<!--
+				<input style="left: 100px; top: 100px; width: 300px; height: 400px;" type="file" name="filename" src="img/blank-frame.jpg"  >
+				-->
+			  <div class="caption" style="center">
+				  <form method="POST" action="wordpost.php" enctype="multipart/form-data" >
+						<p > &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						<i class="fa fa-calendar fa-fw"></i>&nbsp <input type="date" name="date">
+						<i class="fa fa-map-marker fa-fw"></i><input type="text" name="whereis"></p>
+						<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> &nbsp <input type="text" name="content"></p>
+						<input type="file" name="filename"><br>
+						<button class="btn btn btn-primary" type=submit><i class="fa fa-floppy-o fa-fw"></i>&nbsp Save / 送出</button>
+						
+						<label for=ac class=sr-only>Account</label> <!--原Email address-->
+							<input type="text" name="account" id=account class="btn btn-default" placeholder="Check Your Account!" required autofocus> 
+							
+					</form>
+			  </div>
+			</div>
+		</div>
+		<div class="col-xs-6 col-md-1"></div>
+		
+    <!-- Sample  -->
+		<div class="col-xs-6 col-md-4">
+			<div class="thumbnail">
+			<h4>Sample!</h4>
+			  <img style="width: 300px; height: 400px; display: block;" alt="fail to show" src="img/cam.jpg">
+			  <div class="caption" style="center">
+				<p class="lead"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<i class="fa fa-calendar fa-fw"></i>2015-09-06  <i class="fa fa-map-marker fa-fw"></i> U.S.MN.<br><br>
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Friendship!</p><br>
+				<p><a class="btn btn-primary" role="button" href="#"><i class="fa fa-floppy-o fa-fw"></i>&nbsp Save</a> <a class="btn btn-default" role="button" href="#">Sample</a></p>
+			  </div>
+			</div>
+		</div>
   
-  
-	<!-- Register Acount -->
-   <div class=container>
-		<form class=form-signin role=form method="POST" action="register.php">
-			<h2 class=form-signin-heading>Register &nbsp New  One</h2>
-		<label for=inputEmail class=sr-only>Account</label> <!--原Email address-->
-			<input type="text" name="account" id=inputEmail class=form-control placeholder="Account" required autofocus> 
-		<label for=inputPassword class=sr-only>Password</label> 
-			<input type="text"  name="password" id=inputPassword class=form-control placeholder=Password required>
-		<div class=checkbox><label> 
-			<input type=checkbox value=remember-me> Remember me </label></div>
-			<button class="btn btn-lg btn-primary btn-block" type=submit>Resgist / 申請</button>
-		</form>
-	</div>
-    <!-- /.intro-header -->
-
-   
-    </div>
-    <!-- /.banner -->
 
     <!-- Footer -->
     <footer>
